@@ -9,6 +9,22 @@ socket.on('chat_message', (data) => {
     document.getElementById('chat-list').prepend(p);
 })
 
+socket.on('move', (data) => {
+    var message = `${data.x}, ${data.y}`;
+    document.getElementById('moveArea').innerText = message;
+})
+
+function handleMousemove(event) {
+    var mouseX = event.clientX;
+    var mouseY = event.clientY;
+    var data = {
+        x: mouseX,
+        y: mouseY,
+    }
+    // console.log(data)
+    socket.emit('move', data);
+}
+
 function sendMessage() {
     // console.log('send message!!')
     var message = document.getElementById('message').value;

@@ -36,6 +36,11 @@ io.on('connection', (socket) => {
         //接続しているユーザにメッセージを送信
         io.emit('chat_message', data);
     })
+
+    socket.on('move', (data) => {
+        data.socketID = socket.id;
+        io.emit('move', data);
+    })
 })
 
 // HTTPサーバー待機
