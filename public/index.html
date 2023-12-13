@@ -12,6 +12,15 @@
 
 </head>
 <body>
-    <h2>Chat</h2>
+    <main class="m-4 container">
+        <h2>Chat</h2>
+        <textarea class="form-control mb-3" id="message"></textarea>
+        <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+
+        <div id="chat-list"></div>
+    </main>
+
+    <!-- メインプログラム実行 -->
+    <script src="js/chat.js"></script>
 </body>
 </html>
