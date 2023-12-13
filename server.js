@@ -26,13 +26,13 @@ const io = new Server(server);
 // connection event
 io.on('connection', (socket) => {
     console.log('connected!!!')
+    console.log(`SocketID: ${socket.id}`);
 
     //chatメッセージの受信
     socket.on('chat_message', (data) => {
-        console.log(socket.id);
         console.log(data);
         //送信ユーザのSocketIDを追加
-        data.socket_id = socket.id;
+        data.socketID = socket.id;
         //接続しているユーザにメッセージを送信
         io.emit('chat_message', data);
     })
